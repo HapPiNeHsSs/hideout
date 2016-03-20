@@ -1,0 +1,15 @@
+[Gotham]
+description = Batman's city
+
+#index = <street name>|<number_of_rooms>|description
+1 = Back alley|5|A test street
+2 = Bat cave|5|Batman lives here
+3 = Pet store|5|Batman buys bats here
+
+[Metropolis]
+description = Superman's city
+
+#index = <street name>|<number_of_rooms>|description
+1 = Daily Planet|5|Report here
+2 = House|2|Superman Lives Here
+3 = Phonebooth|3|Superman Changes clothes here

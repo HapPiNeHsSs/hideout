@@ -1,0 +1,15 @@
+[static]
+sname = Hideout Server
+port = 8005
+memcache_ip = localhost
+memcache_port = 11211
+
+[db]
+user = root
+passwd = test
+host = localhost
+dbname = hideout
+
+[logging]
+logfile = hideout
+logdir = ./

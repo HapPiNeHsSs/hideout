@@ -1,0 +1,112 @@
+-- MySQL dump 10.13  Distrib 5.1.49, for debian-linux-gnu (i686)
+--
+-- Host: localhost    Database: hideout
+-- ------------------------------------------------------
+-- Server version	5.1.49-1ubuntu8.1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `block_list`
+--
+
+DROP TABLE IF EXISTS `block_list`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `block_list` (
+  `user` varchar(80) NOT NULL,
+  `blocked_user` varchar(80) NOT NULL,
+  UNIQUE KEY `user_2` (`user`,`blocked_user`),
+  KEY `user` (`user`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `block_list`
+--
+
+LOCK TABLES `block_list` WRITE;
+/*!40000 ALTER TABLE `block_list` DISABLE KEYS */;
+INSERT INTO `block_list` VALUES ('tra','tre'),('tra','tred');
+/*!40000 ALTER TABLE `block_list` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `friend_list`
+--
+
+DROP TABLE IF EXISTS `friend_list`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `friend_list` (
+  `user` varchar(80) NOT NULL,
+  `friend` varchar(80) NOT NULL,
+  `flag` int(2) DEFAULT '0',
+  UNIQUE KEY `user` (`user`,`friend`),
+  KEY `user_index` (`user`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `friend_list`
+--
+
+LOCK TABLES `friend_list` WRITE;
+/*!40000 ALTER TABLE `friend_list` DISABLE KEYS */;
+INSERT INTO `friend_list` VALUES ('tester','tester1',0),('tester','tester2',1),('tester1','tester',0);
+/*!40000 ALTER TABLE `friend_list` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ho_users`
+--
+
+DROP TABLE IF EXISTS `ho_users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ho_users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tstamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `username` varchar(80) NOT NULL,
+  `device_id` varchar(100) NOT NULL,
+  `health` int(11) NOT NULL DEFAULT '0',
+  `max_health` int(11) NOT NULL DEFAULT '0',
+  `fame` int(11) NOT NULL DEFAULT '0',
+  `level` int(4) NOT NULL DEFAULT '0',
+  `coin` int(11) NOT NULL DEFAULT '0',
+  `token` varchar(64) NOT NULL DEFAULT '',
+  `home` text,
+  `attributes` text,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ho_users`
+--
+
+LOCK TABLES `ho_users` WRITE;
+/*!40000 ALTER TABLE `ho_users` DISABLE KEYS */;
+INSERT INTO `ho_users` VALUES (1,'2011-03-28 03:37:09','beejay','00000000-0000-1000-8000-001B631D0F44',300,900,300,300,300,'',NULL,NULL),(2,'2011-03-25 06:03:55','tester','tester',300,0,300,300,300,'',NULL,NULL),(3,'2011-03-29 07:26:28','tester1','tester1',200,0,300,300,300,'',NULL,NULL),(4,'2011-03-11 06:57:24','tester2','',0,0,0,0,0,'',NULL,NULL),(5,'2011-03-11 06:57:26','tester3','',0,0,0,0,0,'',NULL,NULL),(7,'2011-03-11 06:58:21','tester4','tester4',0,0,0,0,0,'',NULL,NULL),(8,'2011-03-11 06:58:23','tester5','',0,0,0,0,0,'',NULL,NULL),(10,'2011-04-05 06:21:49','test13','1d1234',0,0,0,0,0,'',NULL,'test');
+/*!40000 ALTER TABLE `ho_users` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2011-05-05 16:33:01
